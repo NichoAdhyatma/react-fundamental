@@ -30,7 +30,7 @@ const Collections = () => {
       setLimit((prev) => prev + 1);
     }
     if (props === "-") {
-      setLimit((prev) => prev - 1);
+      setLimit((prev) => prev < 1 ? 1 : prev - 1);
     }
   };
 
