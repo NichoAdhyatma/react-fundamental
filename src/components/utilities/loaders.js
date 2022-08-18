@@ -1,9 +1,8 @@
-import { Spinner} from "react-bootstrap";
 
 const Loaders = () => {
   return (
-    <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
-      <Spinner animation="border" variant="primary" />
+    <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "50vh" }}>
+      <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
     </div>
   );
 };

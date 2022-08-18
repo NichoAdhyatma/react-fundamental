@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Carousel, ButtonGroup } from "react-bootstrap";
-import Loaders from "../utilities/loaders";
+import Loaders from "../Utilities/loaders";
+
 
 const Collections = () => {
   const [datas, setDatas] = useState([]);
@@ -17,7 +18,8 @@ const Collections = () => {
         url: `${process.env.REACT_APP_BASEURL}/photos?_limit=${limit}`,
       })
         .then((result) => setDatas(result.data))
-        .catch((err) => console.log(err)).finally(() => setLoading(false));
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
 
       return () => {
         flush = true;
@@ -30,7 +32,7 @@ const Collections = () => {
       setLimit((prev) => prev + 1);
     }
     if (props === "-") {
-      setLimit((prev) => prev < 1 ? 1 : prev - 1);
+      setLimit((prev) => (prev <= 1 ? 1 : prev - 1));
     }
   };
 
@@ -58,16 +60,10 @@ const Collections = () => {
       </Carousel>
 
       <ButtonGroup className="d-flex justify-content-center mt-3">
-        <button
-          className="btn btn-outline-primary"
-          onClick={() => handleLimit("+")}
-        >
+        <button className="btn btn-success" onClick={() => handleLimit("+")}>
           +
         </button>
-        <button
-          className="btn btn-outline-primary"
-          onClick={() => handleLimit("-")}
-        >
+        <button className="btn btn-danger" onClick={() => handleLimit("-")}>
           -
         </button>
       </ButtonGroup>

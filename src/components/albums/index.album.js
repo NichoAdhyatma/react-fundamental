@@ -11,8 +11,8 @@ const Albums = ({ title, description }) => {
   return (
     <React.Fragment>
       <Container className="mt-5">
-        <h2>{ title }</h2>
-        <i>{ description }</i>
+        <h1 class="text-center">{ title }</h1>
+        <p className="text-primary text-center">{ description }</p>
         <Collections />
       </Container>
     </React.Fragment>
