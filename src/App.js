@@ -2,8 +2,8 @@
 import MainLayouts from "./components/Layouts/main.layouts";
 import React from "react";
 import Albums from "./components/albums/index.album";
-import Posts from "./components/posts/index.posts";
-import Home from "./components/home/index.home";
+import Posts from "./components/Posts/index.posts";
+import Home from "./components/Home/index.home";
 import Navigation from "./components/Layouts/nav.layouts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
