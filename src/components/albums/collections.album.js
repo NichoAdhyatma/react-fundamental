@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Carousel, ButtonGroup } from "react-bootstrap";
-import Loaders from "../Utilities/loaders";
+import Loaders from "../utilities/loaders";
 
 
 const Collections = () => {

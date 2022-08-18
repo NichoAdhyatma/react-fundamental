@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Card, Container, Row } from "react-bootstrap";
-import Modals from "../Utilities/modals";
-import Loaders from "../Utilities/loaders";
+import Modals from "../utilities/modals";
+import Loaders from "../utilities/loaders";
 
 const PostsCollection = () => {
   const [posts, setPosts] = useState([]);
