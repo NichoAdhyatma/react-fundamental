@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import PostsCollection from "./postsCollection";
 
+
 const Posts = ({ title, description }) => {
   return (
     <Container>
