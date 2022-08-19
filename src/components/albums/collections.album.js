@@ -3,7 +3,6 @@ import axios from "axios";
 import { Carousel, ButtonGroup } from "react-bootstrap";
 import Loaders from "../utilities/loaders";
 
-
 const Collections = () => {
   const [datas, setDatas] = useState([]);
   const [limit, setLimit] = useState(3);
@@ -39,7 +38,7 @@ const Collections = () => {
   if (loading) return <Loaders />;
 
   return (
-    <div>
+    <React.Fragment>
       <h3>{limit} collection</h3>
       <Carousel>
         {datas.map((data, i) => {
@@ -67,7 +66,7 @@ const Collections = () => {
           -
         </button>
       </ButtonGroup>
-    </div>
+    </React.Fragment>
   );
 };
 

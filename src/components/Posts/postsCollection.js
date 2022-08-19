@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Card, Container, Row } from "react-bootstrap";
+import { Button, Card, Row } from "react-bootstrap";
 import Modals from "../utilities/modals";
 import Loaders from "../utilities/loaders";
 
@@ -34,7 +34,7 @@ const PostsCollection = () => {
   if (loading) return <Loaders />;
 
   return (
-    <Container>
+    <React.Fragment>
       <h4 className="my-3 text-primary">{limit} Posts Collection</h4>
       <Row className="d-flex align-items-center">
         {posts.map((post, index) => {
@@ -89,7 +89,7 @@ const PostsCollection = () => {
           onHide={() => setModalShow(false)}
         />
       </>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center my-5">
         <Button
           variant="outline-primary"
           onClick={() => setLimit((prev) => prev + 3)}
@@ -97,7 +97,7 @@ const PostsCollection = () => {
           Tampilkan lebih banyak
         </Button>
       </div>
-    </Container>
+    </React.Fragment>
   );
 };
 

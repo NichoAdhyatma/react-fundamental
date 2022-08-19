@@ -28,3 +28,8 @@
 .title-card:hover {
   cursor: pointer;
 }
+
+.img-overlay {
+  filter: brightness(0.4);
+  -webkit-filter: brightness(0.4);
+}

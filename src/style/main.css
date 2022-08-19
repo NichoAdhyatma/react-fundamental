@@ -1,11 +1,12 @@
 /*active link*/
 .active {
   text-decoration: underline !important;
+  font-weight: bold;
 }
 
 .nav-link {
   text-decoration: none;
-  color: white;
+  margin-left: 10px;
 }
 
 /*loaders */

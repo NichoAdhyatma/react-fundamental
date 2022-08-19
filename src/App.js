@@ -1,15 +1,15 @@
 //parent component
-import MainLayouts from "./components/Layouts/main.layouts";
 import React from "react";
-import Albums from "./components/albums/index.album";
+import Albums from "./components/albums/index.album.js";
 import Posts from "./components/Posts/index.posts";
 import Home from "./components/Home/index.home";
 import Navigation from "./components/Layouts/nav.layouts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainLayouts from "./components/Layouts/main.layouts";
 
 const App = () => {
   return (
-    <React.Fragment>
+    <MainLayouts>
       <Router>
         <Navigation />
         <Routes>
@@ -33,8 +33,7 @@ const App = () => {
           />
         </Routes>
       </Router>
-      <MainLayouts></MainLayouts>
-    </React.Fragment>
+    </MainLayouts>
   );
 };
 
