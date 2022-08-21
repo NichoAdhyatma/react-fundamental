@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Carousel, ButtonGroup } from "react-bootstrap";
 import Loaders from "../utilities/loaders";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
 
 const Collections = () => {
   const [datas, setDatas] = useState([]);
@@ -62,7 +66,20 @@ const Collections = () => {
         <button className="btn btn-success" onClick={() => handleLimit("+")}>
           +
         </button>
-        <button className="btn btn-danger" onClick={() => handleLimit("-")}>
+        <button
+          className="btn btn-danger"
+          onClick={() => {
+            handleLimit("-");
+            if (limit <= 1) {
+              MySwal.fire({
+                title: "cukup bro..",
+                text: "jangan di kurangi lagi",
+                timer: 3000,
+                icon: "info",
+              });
+            }
+          }}
+        >
           -
         </button>
       </ButtonGroup>

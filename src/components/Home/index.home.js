@@ -7,12 +7,11 @@ const Home = ({ title, description }) => {
   return (
     MySwal.fire({
       title: "Tugas React Course",
-      timer: 3000,
+      timer: 10000,
       timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-      html: "Album API dan Posts API",
+      showConfirmButton:true,
+      confirmButtonText: 'Close',
+      html: "Album API dan Posts API <br>1. Routing URL POSTS ✅<br> 2. Tambahkan Home Page ✅<br> 3. Modal POST (tampilakn userId, Id ,title, body) ✅<br> 4. Active nav link ✅",
       icon: "info",
     }),
     (
@@ -22,7 +21,7 @@ const Home = ({ title, description }) => {
           <p className="text-primary text-center">{description}</p>
         </div>
         <Container className="my-4 d-flex flex-column gap-2">
-          <a href="/albums">
+          <a href="/albums" className="text-white">
             <Card className="bg-dark text-white border-0">
               <Card.Img
                 src="https://source.unsplash.com/1200x400/?albums"
@@ -38,7 +37,7 @@ const Home = ({ title, description }) => {
             </Card>
           </a>
 
-          <a href="/posts">
+          <a href="/posts" className="text-white">
             <Card className="bg-dark text-white border-0">
               <Card.Img
                 src="https://source.unsplash.com/1200x400/?posts"

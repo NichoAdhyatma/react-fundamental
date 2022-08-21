@@ -1,17 +1,33 @@
 //parent component
-import React from "react";
+import React, { useState } from "react";
 import Albums from "./components/albums/index.album.js";
 import Posts from "./components/Posts/index.posts";
 import Home from "./components/Home/index.home";
 import Navigation from "./components/Layouts/nav.layouts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayouts from "./components/Layouts/main.layouts";
+import { BsFillSunFill } from "react-icons/bs";
 
 const App = () => {
+  const [dark, setDark] = useState(false);
+  const theme = () => {
+    document.body.classList.toggle("bg-dark");
+    document.body.classList.toggle("text-white");
+
+    setDark(true);
+
+    if (dark) setDark(false);
+  };
+
   return (
     <MainLayouts>
       <Router>
         <Navigation />
+        <div>
+          <span onClick={() => theme()} className="fixed-bottom fs-3 theme-btn m-3">
+            <BsFillSunFill />
+          </span>
+        </div>
         <Routes>
           <Route
             path="/"
@@ -25,7 +41,9 @@ const App = () => {
           />
           <Route
             path="/posts"
-            element={<Posts title="Posts" description="Posts API" />}
+            element={
+              <Posts title="Posts" description="Posts API" theme={dark} />
+            }
           />
           <Route
             path="*"
@@ -33,6 +51,7 @@ const App = () => {
           />
         </Routes>
       </Router>
+      <footer className="text-center py-4">Made with ❤️ by Nicho</footer>
     </MainLayouts>
   );
 };
