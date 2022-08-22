@@ -370,3 +370,7 @@ label {
   background-color: #34323d;
   opacity: 1;
 }
+
+.btn-theme {
+  width:50px;
+}

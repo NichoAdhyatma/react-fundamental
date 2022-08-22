@@ -15,16 +15,15 @@ const App = () => {
     document.body.classList.toggle("text-white");
 
     setDark(true);
-
     if (dark) setDark(false);
   };
 
   return (
     <MainLayouts>
       <Router>
-        <Navigation />
+        <Navigation theme={dark}/>
         <div>
-          <span onClick={() => theme()} className="fixed-bottom fs-3 theme-btn m-3">
+          <span onClick={() => theme()} className="fixed-bottom fs-3 theme-btn m-3 btn-theme">
             <BsFillSunFill />
           </span>
         </div>

@@ -5,6 +5,7 @@ import Modals from "../utilities/modals";
 import Loaders from "../utilities/loaders";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { AiFillPlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 const MySwal = withReactContent(Swal);
 
 const PostsCollection = ({ theme }) => {
@@ -13,23 +14,17 @@ const PostsCollection = ({ theme }) => {
   const [dataPost, setDataPost] = useState([]);
   const [limit, setLimit] = useState(9);
   const [loading, setLoading] = useState(true);
-  const card = document.querySelectorAll(".card");
+  const [bgCard, setBgCard] = useState("bg-light");
 
-  card.forEach((item) => {
-    if (theme) {
-      item.classList.add("bg-dark");
-      item.classList.add("shadow");
-    } else {
-      item.classList.remove("bg-dark");
-      item.classList.remove("shadow");
-    }
-  });
 
   useEffect(() => {
     let flush = false;
 
+    if (theme) setBgCard("bg-dark");
+    else setBgCard("bg-light");
     if (!flush) {
       setLoading(true);
+    
 
       axios({
         method: `GET`,
@@ -43,9 +38,10 @@ const PostsCollection = ({ theme }) => {
         flush = true;
       };
     }
-  }, [limit]);
+  }, [limit, theme]);
 
   if (loading) return <Loaders />;
+  // dark mode in every refresh bug!
 
   return (
     <React.Fragment>
@@ -59,10 +55,10 @@ const PostsCollection = ({ theme }) => {
         {posts.map((post, index) => {
           return (
             <div className="col-lg-4" key={index}>
-              <Card className="card-posts">
+              <Card className={bgCard + ' me-1 border-0 shadow card-posts'}>
                 <Card.Body>
                   <Card.Title
-                    className="title-card"
+                    className="title-card h-25 mb-3"
                     onClick={() => {
                       setModalShow(true);
                       setDataPost({
@@ -75,7 +71,8 @@ const PostsCollection = ({ theme }) => {
                     <h6>{post.title}</h6>
                   </Card.Title>
                   <Button
-                    variant="primary"
+                    variant="info"
+                    className="w-100 mt-4"
                     onClick={() => {
                       setModalShow(true);
                       setDataPost({
@@ -103,7 +100,7 @@ const PostsCollection = ({ theme }) => {
       </>
       <div className="d-flex justify-content-center my-5 gap-3">
         <Button variant="primary" onClick={() => setLimit((prev) => prev + 3)}>
-          <i className="bi bi-file-earmark-plus-fill me-1"></i> Tampilkan lebih
+          <AiFillPlusCircle /> Tampilkan lebih
           banyak
         </Button>
         <Button
@@ -113,15 +110,15 @@ const PostsCollection = ({ theme }) => {
             if (limit === 3) {
               MySwal.fire({
                 title: "cukup bro..",
-                text: 'jangan di kurangi lagi',
+                text: "jangan di kurangi lagi",
                 timer: 3000,
-                icon: "info"
+                icon: "info",
               });
             }
             setLimit((prev) => (prev <= 3 ? 3 : prev - 3));
           }}
         >
-          <i className="bi bi-dash-square-fill me-1"></i> Tampilkan lebih
+          <AiOutlineMinusCircle /> Tampilkan lebih
           sedikit
         </Button>
       </div>
