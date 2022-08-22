@@ -22,6 +22,7 @@ const PostsCollection = ({ theme }) => {
 
     if (theme) setBgCard("bg-dark");
     else setBgCard("bg-light");
+    
     if (!flush) {
       setLoading(true);
     
@@ -96,6 +97,7 @@ const PostsCollection = ({ theme }) => {
           show={modalShow}
           data={dataPost}
           onHide={() => setModalShow(false)}
+          theme={theme}
         />
       </>
       <div className="d-flex justify-content-center my-5 gap-3">

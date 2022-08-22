@@ -373,4 +373,6 @@ label {
 
 .btn-theme {
   width:50px;
+  display: flex;
+  justify-content: center;
 }

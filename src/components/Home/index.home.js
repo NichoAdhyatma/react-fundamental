@@ -1,6 +1,7 @@
 import { Card, Container, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import {FaInfoCircle} from "react-icons/fa";
 const MySwal = withReactContent(Swal);
 
 const Home = ({ title, description }) => {
@@ -20,7 +21,7 @@ const Home = ({ title, description }) => {
             icon: "info",
           })}
         >
-          Info WebSite
+          <FaInfoCircle /> Info WebSite
         </Button>
       </div>
       <Container className="my-4 d-flex flex-column gap-2">

@@ -6,7 +6,7 @@ import Home from "./components/Home/index.home";
 import Navigation from "./components/Layouts/nav.layouts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayouts from "./components/Layouts/main.layouts";
-import { BsFillSunFill } from "react-icons/bs";
+import { BsFillMoonStarsFill } from "react-icons/bs";
 
 const App = () => {
   const [dark, setDark] = useState(false);
@@ -23,8 +23,8 @@ const App = () => {
       <Router>
         <Navigation theme={dark}/>
         <div>
-          <span onClick={() => theme()} className="fixed-bottom fs-3 theme-btn m-3 btn-theme">
-            <BsFillSunFill />
+          <span onClick={() => theme()} className="fixed-bottom fs-3 btn-theme ms-auto me-3 mb-4">
+            <BsFillMoonStarsFill />
           </span>
         </div>
         <Routes>
