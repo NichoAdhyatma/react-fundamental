@@ -53,6 +53,7 @@ const PostsCollection = ({ theme }) => {
         </h5>
       </Alert>
       <Row className="d-flex align-items-center">
+        {console.log(posts)}
         {posts.map((post, index) => {
           return (
             <div className="col-lg-4" key={index}>
@@ -69,6 +70,7 @@ const PostsCollection = ({ theme }) => {
                       });
                     }}
                   >
+                    
                     <h6>{post.title}</h6>
                   </Card.Title>
                   <Button
